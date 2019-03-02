@@ -8,7 +8,7 @@ class CardModel {
   CardModel.fromJson(Map<String, dynamic> json){
     if(json['cardResults'] != null){
       results = new List<CardResults>();
-      json[CardResults].forEach((v) {
+      json['CardResults'].forEach((v) {
         results.add(new CardResults.fromJson(v));
       });
     }

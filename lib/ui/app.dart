@@ -13,8 +13,20 @@ class App extends StatelessWidget {
           style: TextStyle(
               fontSize: 16.3, color: Colors.black, fontWeight: FontWeight.w600),
         ),
+        leading: IconButton(
+          icon: Icon(Icons.menu,
+          color: Colors.black,),
+          onPressed: (){},
+        ),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.add,
+          color: Colors.black),
+          onPressed: (){}
+          ),
+        ],
       ),
       body: Container(),
     );
   }
+  
 }
