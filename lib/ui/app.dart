@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../ui/widgets/card_list.dart';
 
 class App extends StatelessWidget {
   @override
@@ -25,7 +26,7 @@ class App extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(),
+      body: CardList(),
     );
   }
   
