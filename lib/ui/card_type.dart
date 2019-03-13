@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import '../ui/widgets/my_appbar.dart';
+import '../bloc/bloc_provider.dart';
+import '../bloc/card_bloc.dart';
+import '../ui/card_create.dart';
+
 
 class  CardType extends StatelessWidget {
   @override
@@ -69,7 +73,16 @@ class  CardType extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 5.0),
       child: RaisedButton(
         elevation: 1.0,
-        onPressed: () {},
+        onPressed: () {
+          var blocProviderCardCreate = BlocProvider(
+            bloc: CardBloc(),
+            child: CardCreate(),
+          );
+          blocProviderCardCreate.bloc.selectCardType(buttonText);
+          Navigator.push(
+            context, 
+            MaterialPageRoute(builder: (context) => blocProviderCardCreate));
+        },
         color:buttonColor,
         child: Text(
           buttonText,

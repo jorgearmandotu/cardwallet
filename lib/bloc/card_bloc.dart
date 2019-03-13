@@ -5,7 +5,7 @@ import '../helpers/card_colors.dart';
 import '../models/card_model.dart';
 import './validators.dart';
 import '../bloc/bloc_provider.dart';
-import '../bloc//card_list_bloc.dart';
+import '../bloc/card_list_bloc.dart';
 
 class CardBloc with Validators implements BlocBase{
   BehaviorSubject<String> _cardHolderName = BehaviorSubject<String>();
@@ -28,14 +28,14 @@ class CardBloc with Validators implements BlocBase{
 
   //retrive data from stream
   Stream<String> get cardHolderName => _cardHolderName.stream.transform(validateCardHolderName);
-  Stream<String> get cardNUmber => _cardNumber.stream.transform(validateCardNumber);
+  Stream<String> get cardNumber => _cardNumber.stream.transform(validateCardNumber);
   Stream<String> get cardMonth => _cardMonth.stream.transform(validateCardMonth);
   Stream<String> get cardYear => _cardYear.stream.transform(validateCardYear);
   Stream<String> get cardCvv => _cardCvv.stream.transform(validateCardVerificationValue);
   Stream<String> get cardType => _cardType.stream;
   Stream<int> get cardColorIndexSelected => _cardColorIndexSelected.stream;
   Stream<List<CardColorModel>> get cardColorsList => _cardsColors.stream;
-  Stream<bool> get saveCardValue => Observable.combineLatest5(_cardHolderName, _cardNumber, _cardMonth, _cardYear
+  Stream<bool> get saveCardValid => Observable.combineLatest5(_cardHolderName, _cardNumber, _cardMonth, _cardYear
   ,_cardCvv, (ch, cn, cm, cy, cc) => true);
 
   void saveCard(){
