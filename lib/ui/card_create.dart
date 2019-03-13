@@ -109,7 +109,8 @@ class _CardCreate extends State<CardCreate> {
       stream: bloc.cardMonth,
       builder: (context, snapshot){
         return Container(
-          width: 85.0,
+          width: 80.0,
+          padding: EdgeInsets.only(top: 16.0),
           child: TextField(
             onChanged: bloc.changeCardMonth,
             keyboardType: TextInputType.number,
@@ -132,7 +133,8 @@ class _CardCreate extends State<CardCreate> {
       stream: bloc.cardYear,
       builder: (context, snapshot) {
         return Container(
-          width: 120.0,
+          padding: EdgeInsets.only(top: 16.0),
+          width: 80.0,
           child: TextField(
             onChanged: bloc.changeCardYear,
             keyboardType: TextInputType.number,
@@ -155,7 +157,8 @@ class _CardCreate extends State<CardCreate> {
       stream: bloc.cardCvv,
       builder: (context, snapshot){
         return Container(
-          width: 85.0,
+          padding: EdgeInsets.only(top: 16.0),
+          width: 80.0,
           child: TextField(
             focusNode: _focusNode,
             onChanged: bloc.changeCardCvv,
@@ -238,7 +241,7 @@ class _CardCreate extends State<CardCreate> {
                           _cardVerificationValue,
                         ],
                       ),
-                      SizedBox(height: 20.0,),
+                      SizedBox(height: 20.0),
                       cardColors(bloc),
                       SizedBox(height: 50.0),
                       _saveCard,
@@ -254,17 +257,18 @@ class _CardCreate extends State<CardCreate> {
   }
 
   Widget cardColors(CardBloc bloc) {
-    final dotSize = (MediaQuery.of(context).size.width -220) / CardColor.baseColors.length;
+
+    final dotSize = (MediaQuery.of(context).size.width -150) / CardColor.baseColors.length;
 
     List<Widget> dotList = new List<Widget>();
 
-    for (var i = 0; i > CardColor.baseColors.length; i++) {
+    for (var i = 0; i < CardColor.baseColors.length; i++) {
       dotList.add(
         StreamBuilder<List<CardColorModel>>(
           stream: bloc.cardColorsList,
           builder: (context, snapshot){
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 1.0),
               child: GestureDetector(
                 onTap: () => bloc.selectCardColor(i),
                 child: Container(
@@ -273,7 +277,7 @@ class _CardCreate extends State<CardCreate> {
                     ? Icon(
                       Icons.check,
                       color: Colors.white,
-                      size: 12.0,
+                      size: 18.0,
                     )
                     : Container()
                   :Container(),

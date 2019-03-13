@@ -13,7 +13,7 @@ class CardFront extends StatelessWidget {
     final CardBloc bloc =BlocProvider.of<CardBloc>(context);
 
     final _cardNumber =Padding(
-      padding: const EdgeInsets.only(top: 15.0),
+      padding: const EdgeInsets.only(top: 5.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
@@ -93,7 +93,7 @@ class CardFront extends StatelessWidget {
     );
 
     final _cardOwner = Padding(
-        padding: const EdgeInsets.only(top: 15.0, left: 44.0),
+        padding: const EdgeInsets.only(top: 20.0, left: 44.0),
         child: StreamBuilder(
           stream: bloc.cardHolderName,
           builder: (context, snapshot) => Text(
@@ -107,7 +107,7 @@ class CardFront extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(top: 25.0, right: 45.0),
+            padding: const EdgeInsets.only(top: 15.0, right: 30.0),
             child: Image(
               image: AssetImage('assets/visa_logo.png'),
               width: 65,
@@ -115,7 +115,7 @@ class CardFront extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 45.0),
+            padding: const EdgeInsets.only(right: 30.0),
             child: StreamBuilder(
               stream: bloc.cardType,
               builder: (context, snapshot){
