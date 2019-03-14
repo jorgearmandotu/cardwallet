@@ -12,7 +12,7 @@ import '../bloc/bloc_provider.dart';
 import '../models/card_color_model.dart';
 
 import 'dart:core';
-//import '../ui/card_wallet.dart';
+import '../ui/card_wallet.dart';
 
 class CardCreate extends StatefulWidget {
   @override
@@ -193,7 +193,7 @@ class _CardCreate extends State<CardCreate> {
             ? (){
               var blocProviderCardWallet = BlocProvider(
                 bloc: bloc,
-                child: Container(),// cardWallet(),
+                child: CardWallet(),
               );
               Navigator.push(
                 context, 
